@@ -1,0 +1,40 @@
+{
+  "defaultEnv": "dev",
+
+  "dev": {
+    "driver": "sqlite3",
+    "filename": "./dev.db"
+  },
+
+  "test": {
+    "driver": "sqlite3",
+    "filename": ":memory:"
+  },
+
+  "prod": {
+    "driver": "sqlite3",
+    "filename": "~/dev.db"
+  },
+
+  "pg": {
+    "driver": "pg",
+    "user": "test",
+    "password": "test",
+    "host": "localhost",
+    "database": "mydb",
+    "port": "20144",
+    "ssl": "true",
+    "schema": "my_schema"
+  },
+
+  "mongo": {
+    "driver": "mongodb",
+    "database": "my_db",
+    "host": "localhost"
+  },
+
+  "other": {
+    "driver": "sqlite3",
+    "filename": "~/dev.db"
+  }
+}
