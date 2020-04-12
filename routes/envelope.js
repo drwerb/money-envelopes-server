@@ -30,6 +30,23 @@ router.put('/', function(req, res, next) {
       if (!envelope) {
         return null;
       }
+
+      if (!envelopeUpdated.name) {
+        envelopeUpdated.name = envelope.name;
+      }
+
+      if (envelopeUpdated.balance_uah === undefined) {
+        envelopeUpdated.balance_uah = envelope.balance_uah;
+      }
+
+      if (envelopeUpdated.balance_usd === undefined) {
+        envelopeUpdated.balance_usd = envelope.balance_usd;
+      }
+
+      if (envelopeUpdated.balance_eur === undefined) {
+        envelopeUpdated.balance_eur = envelope.balance_eur;
+      }
+
       return context.envelopes.update(envelopeUpdated);
     },
     () => res.status(500).send("Can't get envelope")

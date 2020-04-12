@@ -1,5 +1,6 @@
 var sqlite3 = require('sqlite3').verbose();
 var EnvelopeService = require('./services/envelope-service')
+var EnvelopeHistoryService = require('./services/envelope-history-service')
 
 var Context = function (config) {
   this.dbPath = config.dbPath;
@@ -9,6 +10,7 @@ var Context = function (config) {
 Context.prototype.initialize = function() {
   this.db = new sqlite3.Database(this.dbPath);
   this.envelopes = new EnvelopeService({ context: this });
+  this.envelopeHistory = new EnvelopeHistoryService({ context: this });
 };
 
 // db.serialize(function() {

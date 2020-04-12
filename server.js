@@ -1,5 +1,6 @@
 const express = require('express')
 const envelopeRouter = require('./routes/envelope.js')
+const envelopeHistoryRouter = require('./routes/envelope-history.js')
 const app = express()
 const port = 3000
 const Context = require('./context')
@@ -21,5 +22,6 @@ app.locals.context = new Context({
 app.locals.context.initialize();
 
 app.use('/api/envelope', envelopeRouter)
+app.use('/api/envelopeHistory', envelopeHistoryRouter)
 
 app.listen(port, () => console.log(`Example app listening on port ${port}!`))
